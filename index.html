@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <title>Atividade de Validação de Formulário com javascript</title>
+
+  </head>
+  <body class="bg-light">
+    
+    <div class="container">
+        <main>
+            <div class="py-5 text-center col-lg-8 mx-auto">
+                <h2 class="mb-3">Formulário de Cadastro</h2>
+                <div class="lead">
+                    Olá Programador, você deverá aplicar validações javascript no formulário abaixo. <br>
+                    Você poderá fazer a validação conforme achar mais adequado:
+                    <ul class="text-start text-primary">
+                        <li>Mudando a cor das bordas, ou</li>
+                        <li>Exibindo textos com as validações, ou</li>
+                        <li>Utilizando Alerts</li>
+                    </ul>
+                    <hr>
+                    Algumas Recomendações
+                    <ul class="text-start mt-3">
+                        <li class="mb-2">
+                            No campo checkbox onde tem o texto <strong>"Salvar estas informaçõe para uma próxima vez "</strong> deverá aparecer um alert informando que a escolha foi realizada com sucesso.
+                        </li>
+                        <li class="mb-2">
+                            Ao clicar no botão <strong>Verificar Forma de Pagamento</strong> deverá ser mostrado dentro do campo de somente leitura: <strong>Forma de pagamento escolhida</strong> o tipo de pagamento escolhido.
+                        </li>
+                        <li class="mb-2">
+                            Após clicar no botão <strong>Verificar Forma de Pagamento</strong> a seção que contém as <strong>Informações do Cartão</strong> só deverá aparecer quando for escolhido <strong>Cartão de Crédito</strong> ou <strong>Cartão de Débito.</strong> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h4 class="mb-3">Informações Pessoais</h4>
+                    <form action="#" method="post">
+
+                        <!-- CAMPO DE TEXTO: NOME E SOBRENOME -->
+
+                        <section class="row mb-3">
+
+                            <div class="col-sm-6">
+
+                                <label for="nome" class="form-label">Nome</label>
+
+                                <input type="text" class="form-control" id="nome" required>
+
+                                <small id="validaNome"></small>
+
+                            </div>
+    
+                            <div class="col-sm-6">
+
+                                <label for="sobrenome" class="form-label">Sobrenome</label>
+
+                                <input type="text" class="form-control" id="sobrenome" required>
+
+                                <small id="validaSobrenome"></small>
+
+                            </div>
+
+                        </section>
+
+                        <!-- CAMPO DE TEXTO: NOME DE USUÁRIO -->
+
+                        <section class="row mb-3">
+
+                            <div class="col-12">
+
+                                <label for="usuario" class="form-label">Nome de Usuário</label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">@</span>
+
+                                    <input type="text" class="form-control" id="usuario" placeholder="Nome de Usuário" required>
+
+                                </div>
+
+                            </div>
+
+                            <small id="validaNomeUsuario"></small>
+
+                        </section>
+
+                        <!-- CAMPO DE EMAIL: EMAIL -->
+
+                        <section class=" row mb-3">
+
+                            <div class="col-12">
+
+                                <label for="email" class="form-label">Email <span class="text-muted">(Opcional)</span></label>
+
+                                <input type="email" class="form-control" id="email" placeholder="email@email.com">
+
+                            </div>
+
+                            <small id="validaEmail"></small>
+
+                        </section>
+
+                        <!-- CAMPO DE TEXT: ENDEREÇO -->
+
+                        <section class="row mb-3">               
+
+                            <div class="col-12">
+
+                                <label for="endereco" class="form-label">Endereço</label>
+
+                                <input type="text" class="form-control" id="endereco" placeholder="Exemplo: Rua do Limoeiro 35" required>
+
+                                <label id="validaEndereco"></label>
+
+                            </div>
+
+                        </section>                        
+
+                        <!-- CAMPO DE TEXT E NUMBER: ESTADO, CIDADE E CEP -->
+
+                        <section class="row">
+
+                            <div class="col-md-5">
+
+                                <label for="estado" class="form-label">Estado</label>
+
+                                <select class="form-select" id="estado" required>
+
+                                    <option value="">Escolha...</option>
+
+                                    <option value="MA">Maranhão</option>
+
+                                    <option value="SP">São Paulo</option>
+
+                                </select>
+
+                                <small id="validaEstado"></small>
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="cidade" class="form-label">Cidade</label>
+
+                                <select class="form-select" id="cidade" required>
+
+                                    <option value="">Escolha...</option>
+
+                                    <option value="São Luís">São Luís</option>
+
+                                    <option value="Pinheiro">Pinheiro</option>
+
+                                    <option value="Balsas">Balsas</option>
+
+                                </select>
+
+                                <small id="validaCidade"></small>
+
+                            </div>
+
+                            <div class="col-md-3">
+
+                                <label for="cep" class="form-label">Cep</label>
+
+                                <input type="text" class="form-control" id="cep" placeholder="000000-000" required>
+
+                                <small id="validaCep"></small>
+                            </div>
+                           
+                        </section>
+
+                        <hr class="my-4">
+                    
+                        <!-- CAMPO DE CHECKBOX: MESMO ENDEREÇO -->
+
+                        <div class="form-check">
+
+                            <input type="checkbox" class="form-check-input" id="confirmaEndereco">
+
+                            <label class="form-check-label" for="confirmaEndereco">O endereço de entrega é o mesmo que meu endereço de cobrança</label>
+
+                        </div>
+
+                        <div class="form-check">
+
+                            <input type="checkbox" class="form-check-input" id="salvarInfo">
+
+                            <label class="form-check-label" for="salvarInfo">Salvar estas informaçõe para uma próxima vez </label>
+
+                        </div>
+                        
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3">Forma de Pagamento</h4>
+
+                        <!-- CAMPO DE RADIO: FORMA DE PAGAMENTO -->
+
+                        <div class="my-3">
+
+                            <div class="form-check">
+
+                                <input id="boleto" name="pagamento" type="radio" class="form-check-input" value="Boleto" required>
+
+                                <label class="form-check-label" for="boleto">Boleto</label>
+
+                            </div>
+
+                            <div class="form-check">
+
+                                <input id="pix" name="pagamento" type="radio" class="form-check-input" value="Pix" required>
+
+                                <label class="form-check-label" for="pix">Pix</label>
+
+                            </div>
+
+                            <div class="form-check">
+
+                                <input id="credito" name="pagamento" type="radio" class="form-check-input" value="Cartão de Crédito" required>
+
+                                <label class="form-check-label" for="credito">Cartão de Crédito</label>
+
+                            </div>
+
+                            <div class="form-check">
+
+                                <input id="debito" name="pagamento" type="radio" class="form-check-input" value="Cartão de Débito" required>
+
+                                <label class="form-check-label" for="debito">Cartão de Débito</label>
+
+                            </div>
+
+                            <div class="form-check">
+
+                                <input id="paypal" name="pagamento" type="radio" class="form-check-input" value="PayPal" required>
+
+                                <label class="form-check-label" for="paypal">PayPal</label>
+
+                            </div>
+
+                        </div>
+
+                        <!-- CAMPO DE TEXT: SOMENTE LEITURA -->
+
+                        <div class="col-12">
+
+                            <label for="tipoPagamento" class="form-label">Forma de pagamento escolhida</label>
+
+                            <input type="text"  id="tipoPagamento" class="form-control" placeholder="Aqui deve aparecer a forma de pagamento escolhida" readonly required>
+
+                        </div>
+
+                        <button class="w-100 btn btn-primary btn-lg mt-4" id="verificarPagamento">Verificar Forma de Pagamento</button>
+
+                        <!-- BLOCO SECTION: INFORMAÇÃO DO CARTÃO -->
+
+                        <section id="cartao">
+
+                            <h4 class="my-3">Informações do Cartão</h4>
+
+                            <div class="row py-2">
+
+                                <div class="col-md-6">
+
+                                    <label for="nomeCartao" class="form-label">Nome impresso no cartão</label>
+
+                                    <input type="text" class="form-control" id="nomeCartao"  required>
+
+                                    <small id="validaNomeCartao"></small>
+
+                                </div>
+        
+                                <div class="col-md-6">
+
+                                    <label for="numeroCartao" class="form-label">Número do Cartão</label>
+
+                                    <input type="number" class="form-control" id="numeroCartao"  required>
+
+                                    <small id="validaNumeroCartao"></small>
+
+                                    <small class="text-muted">informe apenas os números do cartão</small>
+
+                                </div>
+        
+                                <div class="col-md-3">
+
+                                    <label for="validade" class="form-label">Validade</label>
+
+                                    <input type="month" class="form-control" id="validadeCartao" required>
+
+                                    <small id="validadeMsgCartao"></small>
+
+                                </div>
+        
+                                <div class="col-md-3">
+
+                                    <label for="cvv" class="form-label">CVV</label>
+
+                                    <input type="text" class="form-control" id="cvv" maxlength="3" required> 
+                                    
+                                    <small id="validaCvv"></small>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <hr class="my-4">
+
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2022 Codificação Frontend - Curso Fullstack</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
