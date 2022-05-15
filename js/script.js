@@ -11,7 +11,7 @@ nome.addEventListener("blur", ()=>{
         nome.classList.add("border", "border-danger")
     }
     else{
-        msgNome.textContent = "Nome valido"
+        msgNome.textContent = "Nome válido"
         msgNome.classList.remove("text-danger")
         msgNome.classList.add("text-success")
         nome.classList.remove("border-danger")
@@ -32,7 +32,7 @@ sobrenome.addEventListener("blur", ()=>{
         sobrenome.classList.add("border", "border-danger")
     }
     else{
-        msgSobrenome.textContent = "Sobrenome valido"
+        msgSobrenome.textContent = "Sobrenome válido"
         msgSobrenome.classList.remove("text-danger")
         msgSobrenome.classList.add("text-success")
         sobrenome.classList.remove("border-danger")
@@ -46,14 +46,14 @@ let nomeUsuario = document.querySelector("#usuario")
 let msgNomeUsuario = document.querySelector("#validaNomeUsuario")
 nomeUsuario.addEventListener("blur", ()=>{
     if(nomeUsuario.value.indexOf("@") == -1){
-        msgNomeUsuario.textContent = "Por favor, insira um nome de usuario"
+        msgNomeUsuario.textContent = "Por favor, insira um nome de usuário válido utilizando o @"
         msgNomeUsuario.classList.remove("text-success")
         msgNomeUsuario.classList.add("text-danger")
         nomeUsuario.classList.remove("border-success")
         nomeUsuario.classList.add("border", "border-danger")
     }
     else{
-        msgNomeUsuario.textContent = "Usuario valido"
+        msgNomeUsuario.textContent = "Usuário válido"
         msgNomeUsuario.classList.remove("text-danger")
         msgNomeUsuario.classList.add("text-success")
         nomeUsuario.classList.remove("border-danger")
@@ -66,18 +66,16 @@ nomeUsuario.addEventListener("blur", ()=>{
 let email = document.querySelector("#email")
 let msgEmail = document.querySelector("#validaEmail")
 email.addEventListener("blur", ()=>{
-    let minusculo = email.value.toLowerCase()
-    if(minusculo.indexOf('@') == -1 || minusculo.indexOf('.com') == -1){
-        console.log("Email invalido")
-        msgEmail.textContent = "Este email é invalido"
+ email.value.toLowerCase()
+    if(email.value.indexOf('@') == -1 && email.value.indexOf('.com') == -1){
+        msgEmail.textContent = "Este email é inválido, esta faltando o @ ou .com"
         msgEmail.classList.remove("text-success")
         email.classList.remove("border-danger")
         msgEmail.classList.add("text-danger")
         email.classList.add("border", "border-danger")
     }
     else{
-        console.log("Email valido")
-        msgEmail.textContent = "Este email é valido"
+        msgEmail.textContent = "Email válido"
         msgEmail.classList.remove("text-danger")
         email.classList.remove("border-danger")
         msgEmail.classList.add("text-success")
@@ -91,53 +89,43 @@ let endereco = document.querySelector("#endereco")
 let msgEndereco = document.querySelector("#validaEndereco")
 endereco.addEventListener("blur", ()=>{
     if(endereco.value == ""){
-        msgEndereco.textContent = "Este endereço é invalido"
+        msgEndereco.textContent = "Este endereço é inválido"
         msgEndereco.classList.remove("text-success")
+        endereco.classList.remove("border-success")
         msgEndereco.classList.add("text-danger")
+        endereco.classList.add("border", "border-danger")
     }
     else{
-        msgEndereco.textContent = "Endereço valido"
+        msgEndereco.textContent = "Endereço válido"
         msgEndereco.classList.remove("text-danger")
+        endereco.classList.remove("border-danger")
         msgEndereco.classList.add("text-success")
+        endereco.classList.add("border", "border-success")
     }
 })
 
 // CAMPO DE ESTADO, CIDADE, CEP
 
 let estado = document.querySelector("#estado")
-let msgEstado = document.querySelector("#validaEstado")
 estado.addEventListener("click", ()=>{
     if(estado.value == ""){
-        msgEstado.textContent  = "Escolha um estado" 
-        msgEstado.classList.remove("text-success")
         estado.classList.remove("border-success")
-        msgEstado.classList.add("text-danger")
         estado.classList.add("border", "border-danger")
     }
     else{
-        msgEstado.textContent = "Tudo certo"
-        msgEstado.classList.remove("text-danger")
         estado.classList.remove("border-danger")
-        msgEstado.classList.add("text-success")
         estado.classList.add("border", "border-success")
     }
 })
 
 let cidade = document.querySelector("#cidade")
-let msgCidade = document.querySelector("#validaCidade")
 cidade.addEventListener("click", ()=>{
     if(cidade.value == ""){
-        msgCidade.textContent  = "Escolha uma cidade" 
-        msgCidade.classList.remove("text-success")
         cidade.classList.remove("border-success")
-        msgCidade.classList.add("text-danger")
         cidade.classList.add("border", "border-danger")
     }
     else{
-        msgCidade.textContent = "Tudo certo"
-        msgCidade.classList.remove("text-danger")
         cidade.classList.remove("border-danger")
-        msgCidade.classList.add("text-success")
         cidade.classList.add("border", "border-success")
     }
 })
@@ -145,15 +133,15 @@ cidade.addEventListener("click", ()=>{
 let cep = document.querySelector("#cep")
 let msgCep = document.querySelector("#validaCep")
 cep.addEventListener("blur", ()=>{
-    if(cep.value == ""){
-        msgCep.textContent  = "Informe um cep" 
+    if(cep.value == "" || cep.value.length<8){
+        msgCep.textContent  = "O CEP precisa ter 8 digitos" 
         msgCep.classList.remove("text-success")
         cep.classList.remove("border-danger")
         msgCep.classList.add("text-danger")
         cep.classList.add("border", "border-danger")
     }
     else{
-        msgCep.textContent = "Tudo certo"
+        msgCep.textContent = "CEP válido"
         msgCep.classList.remove("text-danger")
         cep.classList.remove("border-danger")
         msgCep.classList.add("text-success")
@@ -166,7 +154,7 @@ cep.addEventListener("blur", ()=>{
 let info = document.querySelector("#salvarInfo")
 info.addEventListener("click", ()=>{
     if(info.checked){
-        alert("Escolha realizada com sucesso")
+        alert("Informações salvas com sucesso")
     }
     else{
         alert("Tem certeza que não quer salvar estas informações?")
@@ -227,16 +215,16 @@ nomeCartao.addEventListener("blur", ()=>{
 
 let numeroCartao = document.querySelector("#numeroCartao")
 let msgNumeroCartao = document.querySelector("#validaNumeroCartao")
-numeroCartao.addEventListener("keyup", ()=>{
-    if(numeroCartao.value == ""){
-        msgNumeroCartao.textContent = "Informe os numeros do cartão"
+numeroCartao.addEventListener("blur", ()=>{
+    if(numeroCartao.value == "" || numeroCartao.value.length<13){
+        msgNumeroCartao.textContent = "Os números do cartão devem conter no minimo 13 digitos"
         numeroCartao.classList.remove("border-success")
         msgNumeroCartao.classList.remove("text-success")
         numeroCartao.classList.add("border", "border-danger")
         msgNumeroCartao.classList.add("text-danger")
     }
     else{
-        msgNumeroCartao.textContent = "Numero de cartão valido"
+        msgNumeroCartao.textContent = "Número de cartão valido"
         numeroCartao.classList.remove("border-danger")
         msgNumeroCartao.classList.remove("text-danger")
         numeroCartao.classList.add("border", "border-success")
@@ -245,29 +233,22 @@ numeroCartao.addEventListener("keyup", ()=>{
 })
 
 let validadeCartao = document.querySelector("#validadeCartao")
-let msgValidadeCartao = document.querySelector("#validadeMsgCartao")
 validadeCartao.addEventListener("blur", ()=>{
     if(validadeCartao.value == ""){
-        msgValidadeCartao.textContent = "Informe a validade do cartão"
         validadeCartao.classList.remove("border-success")
-        msgValidadeCartao.classList.remove("text-success")
         validadeCartao.classList.add("border", "border-danger")
-        msgValidadeCartao.classList.add("text-danger")
     }
     else{
-        msgValidadeCartao.textContent = "Validade válida"
         validadeCartao.classList.remove("border-danger")
-        msgValidadeCartao.classList.remove("text-danger")
-        validadeCartao.classList.add("border", "border-success")
-        msgValidadeCartao.classList.add("text-success")
+        validadeCartao.classList.add("border", "border-success") 
     }
 })
 
 let cvv = document.querySelector("#cvv")
 let msgCvv = document.querySelector("#validaCvv")
-cvv.addEventListener("keyup", ()=>{
-    if(cvv.value.length<3 || cvv.value.length == ""){
-        msgCvv.textContent = "O CVV precisa ter 3 digitos"
+cvv.addEventListener("blur", ()=>{
+    if(cvv.value.length<3 || cvv.value == ""){
+        msgCvv.textContent = "O CVV precisa ter no minimo 3 digitos"
         cvv.classList.remove("border-success")
         msgCvv.classList.remove("text-success")
         cvv.classList.add("border", "border-danger")
@@ -281,3 +262,4 @@ cvv.addEventListener("keyup", ()=>{
         msgCvv.classList.add("text-success")
     }
 })
+

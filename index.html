@@ -169,7 +169,7 @@
 
                                 <label for="cep" class="form-label">Cep</label>
 
-                                <input type="text" class="form-control" id="cep" placeholder="000000-000" required>
+                                <input type="number" class="form-control" id="cep" placeholder="000000-000" maxlength="8" required>
 
                                 <small id="validaCep"></small>
                             </div>
@@ -281,7 +281,7 @@
 
                                     <label for="numeroCartao" class="form-label">Número do Cartão</label>
 
-                                    <input type="number" class="form-control" id="numeroCartao"  required>
+                                    <input type="text" class="form-control" id="numeroCartao" maxlength="16" required>
 
                                     <small id="validaNumeroCartao"></small>
 
@@ -303,7 +303,7 @@
 
                                     <label for="cvv" class="form-label">CVV</label>
 
-                                    <input type="text" class="form-control" id="cvv" maxlength="3" required> 
+                                    <input type="text" class="form-control" id="cvv" maxlength="4" required> 
                                     
                                     <small id="validaCvv"></small>
 
@@ -316,7 +316,7 @@
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar</button>
+                        <button class="w-100 btn btn-primary btn-lg" type="submit" id="continuar">Continuar</button>
                     </form>
                 </div>
             </div>
